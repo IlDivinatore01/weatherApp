@@ -42,6 +42,6 @@ const options = {
 };
     
 https.createServer(options, app)
-.listen(process.env.PORT || 80, function (req, res) {
+.listen(process.env.PORT || 3000, function (req, res) {
     console.log("Server started at port 3000");
 }); 
