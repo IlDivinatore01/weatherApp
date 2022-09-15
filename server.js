@@ -10,6 +10,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
 
+const PORT = process.env.PORT || 3000;
+
 app.get("/", (req, res) => {
     let locDate = { temp: "Temp", desc: "Discription", location: "Location", humidity: "Humidity ", feel: "Feel ", speed: "Speed" };
     res.render("index", { locDate: locDate,});
@@ -42,6 +44,6 @@ const options = {
 };
     
 https.createServer(options, app)
-.listen(process.env.PORT || 3000, function (req, res) {
-    console.log("Server started at port 3000");
+.listen(PORT, function (req, res) {
+    console.log("Server started at port %d", PORT);
 }); 
